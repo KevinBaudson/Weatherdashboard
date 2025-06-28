@@ -1,0 +1,113 @@
+/* Wrapper para permitir botão de scroll */
+.cards-wrapper {
+  position: relative;
+}
+
+/* Container com scroll horizontal */
+.container-cards {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--background-main);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.container-cards::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.card {
+  flex: 0 0 auto;
+  min-width: 160px;
+  background-color: var(--background-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: 14px;
+  height: 220px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card .img-card img {
+  width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.card h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: var(--text-primary);
+}
+
+.card small {
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  color: var(--text-secondary, #555);
+}
+
+.card .metrics {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-secondary, #666);
+}
+
+.card .metrics div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.card strong {
+  font-size: 1.2rem;
+  color: var(--primary-color, #4a90e2);
+}
+
+.scroll-prev,
+.scroll-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 50%;
+  padding: 8px 10px;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease;
+}
+
+.scroll-prev {
+  left: 10px;
+}
+
+.scroll-next {
+  right: 10px;
+}
+
+.scroll-prev:hover,
+.scroll-next:hover {
+  background-color: var(--primary-color-dark, #a971ff);
+}
